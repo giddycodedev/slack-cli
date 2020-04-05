@@ -283,7 +283,7 @@ function luser() {
 function chatdelete() {
   local msg=$(\
     curl -s -X POST https://slack.com/api/chat.delete \
-      --data-urlencode "as_user=true" \
+      --data-urlencode "as_user=false" \
       --data-urlencode "channel=$(lchannel)" \
       --data-urlencode "ts=${timestamp}" \
       --data-urlencode "token=${token}")
@@ -309,7 +309,7 @@ function chatupdate() {
 
   local msg=$(\
     curl -s -X POST https://slack.com/api/chat.update \
-      --data-urlencode "as_user=true" \
+      --data-urlencode "as_user=false" \
       --data-urlencode "attachments=$(attachify)" \
       --data-urlencode "channel=$(lchannel)" \
       --data-urlencode "ts=${timestamp}" \
